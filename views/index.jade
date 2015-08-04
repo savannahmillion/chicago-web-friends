@@ -1,20 +1,100 @@
 doctype html
 html
   head
-    title Join the #{community} community on Slack!
+    title #{community} on Slack
     style.
-      body {
-        padding: 50px;
-        font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+      html {
+        box-sizing: border-box;
       }
+      *, *:before, *:after {
+        box-sizing: inherit;
+      }
+      body {
+        font-family: monospace;
+        font-size: 16px;
+      }
+
+      .content {
+        width: 600px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .join {
+        border: solid 1px black;
+        padding: 10px 30px 30px 30px;
+      }
+
+      .join-title {
+        font-weight: bold;
+      }
+      .label {
+        text-align: left;
+        font-size: 14px;
+      }
+
       input {
-        font-size: 24px;
-        width: 400px;
+        font-size: 16px;
+        width: 100%;
+        padding: 5px;
+        font-family: monospace;
+        margin-top: 10px;
+      }
+
+      .thanks {
+        width: 100%;
+        padding-top: 20px;
+        margin-top: 30px;
+        border-top: 1px solid black;
+      }
+
+      button {
+        padding: 7px;
+        font-family: monospace;
+        margin-top: 20px;
+        background: none;
+        border-radius: 0px;
+        border: 1px solid black;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .logo {
+        width: 45px;
+        height: 45px;
+        margin-top: 30px;
+        border: 1px solid black;
+        border-radius: 4px;
+      }
+
+      small {
+        font-size: 12px;
+      }
+
+      @media (max-width: 600px) {
+        .content {
+          width: 100%;
+        }
       }
   body
-    h1 Join the #{community} community on Slack!
-    form(method="POST", action="/invite")#join-form
-      input(type="text", name="email", placeholder="Enter your email")#slack-email
+    .content 
+      img(src='https://s3-us-west-2.amazonaws.com/slack-files2/avatars/2015-07-31/8485729073_8a990e85124097e436cf_132.jpg' class='logo')
+      p #{community}
+      p a friendly chicago slack forum for exchanging web knowledge
+      .join
+        p(class='join-title') join us
+
+        form(method="POST", action="/invite")#join-form
+          .label
+            label your email:
+          input(type="text", name="email", placeholder="email@email.com")#slack-email
+          button(action="/invite") invite me!
+
+      p there is only one rule: don't be awful
+      a(href='https://twitter.com/savannahmillion') questions? support? @ me.
+      .thanks
+        small thanks to #[a(href='https://github.com/outsideris/slack-invite-automation') outsideris] for the framework for this page!
     script.
       var form = document.getElementById('join-form');
       var email = document.getElementById('slack-email')
