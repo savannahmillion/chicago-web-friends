@@ -70,6 +70,11 @@ html
         border-radius: 4px;
       }
 
+      .message {
+        display: block;
+        padding: 5px;
+      }
+
       small {
         font-size: 12px;
       }
@@ -87,21 +92,43 @@ html
       .join
         p(class='join-title') join us
 
-        form(method="POST", action="/invite")#join-form
+        form#join-form
           .label
             label your email:
           input(type="text", name="email", placeholder="email@email.com")#slack-email
-          button(action="/invite") invite me!
-
+          button invite me!
+        p(class="message")
       p there is only one rule: don't be a jerk
       a(href='https://twitter.com/savannahmillion') questions? support? @ me.
       .thanks
         small thanks to #[a(href='https://github.com/outsideris/slack-invite-automation') outsideris] for the framework for this page!
+    script(src="//code.jquery.com/jquery-1.11.3.min.js")
     script.
       var form = document.getElementById('join-form');
       var email = document.getElementById('slack-email')
       form.addEventListener('submit', function(evt) {
-        if (!email.value) {
-          evt.preventDefault();
-        }
+
+        //prevent default reload behavior 
+        evt.preventDefault();
+
+        $.ajax({
+          url : 'http://localhost:3000/invite',
+          data: JSON.stringify({
+            email: email.value
+          }),
+          dataType: "json",
+          contentType: 'application/json',
+          type : 'POST',
+          success : function(output){
+            console.log(output.responseText);
+            $(".message").html(output.responseText);
+            $(".message").css("background-color", "#D1EAF7");
+          },
+          error: function(output){
+            console.log(output.responseText);
+            $(".message").html(output.responseText);
+            $(".message").css("background-color", "#D1EAF7");
+          }
+        });
+        //*/
       });
