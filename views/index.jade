@@ -1,134 +1,35 @@
 doctype html
 html
   head
-    title #{community} on Slack
-    meta(name='viewport', content='width=device-width, initial-scale=1',)
-    link(rel='icon', type='image/png', href='https://s3-us-west-2.amazonaws.com/slack-files2/avatars/2015-07-31/8485729073_8a990e85124097e436cf_132.jpg')
-    style.
-      html {
-        box-sizing: border-box;
-      }
-      *, *:before, *:after {
-        box-sizing: inherit;
-      }
-      body {
-        font-family: monospace;
-        font-size: 16px;
-      }
-
-      .content {
-        width: 600px;
-        margin: 0 auto;
-        text-align: center;
-      }
-
-      .join {
-        border: solid 1px black;
-        padding: 10px 30px 30px 30px;
-      }
-
-      .join-title {
-        font-weight: bold;
-      }
-      .label {
-        text-align: left;
-        font-size: 14px;
-      }
-
-      input {
-        font-size: 16px;
-        width: 100%;
-        padding: 5px;
-        font-family: monospace;
-        margin-top: 10px;
-      }
-
-      .thanks {
-        width: 100%;
-        padding-top: 20px;
-        margin-top: 30px;
-        border-top: 1px solid black;
-      }
-
-      button {
-        padding: 7px;
-        font-family: monospace;
-        margin-top: 20px;
-        background: none;
-        border-radius: 0px;
-        border: 1px solid black;
-        font-size: 16px;
-        font-weight: bold;
-        cursor: pointer;
-      }
-
-      .logo {
-        width: 45px;
-        height: 45px;
-        margin-top: 30px;
-        border: 1px solid black;
-        border-radius: 4px;
-      }
-
-      .message {
-        display: block;
-        padding: 5px;
-      }
-
-      small {
-        font-size: 12px;
-      }
-
-      @media (max-width: 600px) {
-        .content {
-          width: 100%;
-        }
-      }
+    meta(http-equiv="Content-Type", content="text/html; charset=utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    title #{__('TITLE', community)}
+    link(href="css/style.css", rel="stylesheet", type="text/css")
+    link(href="//fonts.googleapis.com/css?family=Lato:300,400,700,900,700italic|Open+Sans:700italic,400,600,300,700,800", rel="stylesheet", type="text/css")
   body
-    .content 
-      img(src='https://s3-us-west-2.amazonaws.com/slack-files2/avatars/2015-07-31/8485729073_8a990e85124097e436cf_132.jpg' class='logo')
-      p #{community}
-      p a friendly chicago slack forum for exchanging web knowledge
-      .join
-        p(class='join-title') join us
-
-        form#join-form
-          .label
-            label your email:
-          input(type="text", name="email", placeholder="email@email.com")#slack-email
-          button invite me!
-        p(class="message")
-      p there is only one rule: don't be a jerk
-      a(href='https://twitter.com/savannahmillion') questions? support? @ me.
-      .thanks
-        small thanks to #[a(href='https://github.com/outsideris/slack-invite-automation') outsideris] for the framework for this page!
-    script(src="//code.jquery.com/jquery-1.11.3.min.js")
+    #wrapper
+      .main
+        .header
+          h1
+            strong #{community}
+          h2 #{__('HEADER', community)}
+        .content
+          .information
+            form(method="POST", action="/invite")#join-form.form
+              input(type="email", name="email", placeholder="#{__('ENTER_EMAIL')}")#slack-email.field
+              if tokenRequired
+                input(type="text", name="token", placeholder="#{__('ENTER_TOKEN')}")#slack-token.field
+              input(type="submit", value="Join").submit
     script.
+      var tokenRequired = #{tokenRequired};
       var form = document.getElementById('join-form');
-      var email = document.getElementById('slack-email')
+      var email = document.getElementById('slack-email');
+      var token = document.getElementById('slack-token');
       form.addEventListener('submit', function(evt) {
-
-        //prevent default reload behavior 
-        evt.preventDefault();
-
-        $.ajax({
-          url : 'http://localhost:3000/invite',
-          data: JSON.stringify({
-            email: email.value
-          }),
-          dataType: "json",
-          contentType: 'application/json',
-          type : 'POST',
-          success : function(output){
-            console.log(output.responseText);
-            $(".message").html(output.responseText);
-            $(".message").css("background-color", "#D1EAF7");
-          },
-          error: function(output){
-            console.log(output.responseText);
-            $(".message").html(output.responseText);
-            $(".message").css("background-color", "#D1EAF7");
-          }
-        });
-        //*/
+        if (!email.value) {
+          evt.preventDefault();
+        }
+        if (tokenRequired && !token.value) {
+          evt.preventDefault();
+        }
       });

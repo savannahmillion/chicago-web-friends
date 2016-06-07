@@ -4,11 +4,13 @@ var request = require('request');
 var config = require('../config');
 
 router.get('/', function(req, res) {
-  res.render('index', { community: config.community });
+  res.setLocale(config.locale);
+  res.render('index', { community: config.community,
+                        tokenRequired: !!config.inviteToken });
 });
 
 router.post('/invite', function(req, res) {
-  if (req.body.email) {
+  if (req.body.email && (!config.inviteToken || (!!config.inviteToken && req.body.token === config.inviteToken))) {
     request.post({
         url: 'https://'+ config.slackUrl + '/api/users.admin.invite',
         form: {
@@ -24,13 +26,53 @@ router.post('/invite', function(req, res) {
         if (err) { return res.send('Error:' + err); }
         body = JSON.parse(body);
         if (body.ok) {
-          res.send('Success! Check "'+ req.body.email +'" for an invite from Slack.');
+          res.render('result', {
+            community: config.community,
+            message: 'Success! Check "'+ req.body.email +'" for an invite from Slack.'
+          });
         } else {
-          res.send('Failed! ' + body.error)
+          var error = body.error;
+          if (error === 'already_invited' || error === 'already_in_team') {
+            res.render('result', {
+              community: config.community,
+              message: 'Success! You were already invited.<br>' +
+                       'Visit <a href="https://'+ config.slackUrl +'">'+ config.community +'</a>'
+            });
+            return;
+          } else if (error === 'invalid_email') {
+            error = 'The email you entered is an invalid email.';
+          } else if (error === 'invalid_auth') {
+            error = 'Something has gone wrong. Please contact a system administrator.';
+          }
+
+          res.render('result', {
+            community: config.community,
+            message: 'Failed! ' + error,
+            isFailed: true
+          });
         }
       });
   } else {
-    res.status(400).send('email is required.');
+    var errMsg = [];
+    if (!req.body.email) {
+      errMsg.push('your email is required');
+    }
+
+    if (!!config.inviteToken) {
+      if (!req.body.token) {
+        errMsg.push('valid token is required');
+      }
+
+      if (req.body.token && req.body.token !== config.inviteToken) {
+        errMsg.push('the token you entered is wrong');
+      }
+    }
+
+    res.render('result', {
+      community: config.community,
+      message: 'Failed! ' + errMsg.join(' and ') + '.',
+      isFailed: true
+    });
   }
 });
 
