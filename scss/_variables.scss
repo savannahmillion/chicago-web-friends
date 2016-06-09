@@ -1,0 +1,29 @@
+//
+// Variables
+//
+
+// Colors
+$navy: #2E3192;
+$aqua: #2dffff;
+$aqua-shade: #5DB8BC;
+$rose: #ea267a;
+$rose-shade: #C51663;
+
+// Font Weights
+$black-font-weight: 900;
+$bold-font-weight: 700;
+$semibold-font-weight: 600;
+$medium-font-weight: 500;
+$regular-font-weight: 400;
+$light-font-weight: 300;
+
+// Fonts
+$base-font-family: 'moristonpersonal', Helvetica, sans-serif;
+
+// Spacing
+$base-spacing: 1em;
+$large-spacing: 2.5*$base-spacing;
+$small-spacing: 0.5*$base-spacing;
+
+// Breakpoints
+$medium-screen-size: new-breakpoint(max-width 960px 12);

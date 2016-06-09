@@ -113,7 +113,7 @@ body:before {
   font-style: normal; }
 
 html {
-  font-family: 'moristonpersonal', Helvetica, sans-serif;
+  font-family: "moristonpersonal", Helvetica, sans-serif;
   font-weight: 300;
   color: #2E3192; }
 
@@ -136,16 +136,6 @@ p {
   line-height: 2.25em;
   letter-spacing: 0.05em; }
 
-.main {
-  max-width: 64em;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 2.5em; }
-  .main::after {
-    clear: both;
-    content: "";
-    display: table; }
-
 header {
   max-width: 64em;
   margin-left: auto;
@@ -164,6 +154,16 @@ header {
   text-align: center; }
   .logo-wrapper:last-child {
     margin-right: 0; }
+  @media screen and (max-width: 960px) {
+    .logo-wrapper {
+      float: left;
+      display: block;
+      margin-right: 2.3576515979%;
+      width: 100%;
+      margin-left: 0%;
+      text-align: center; }
+      .logo-wrapper:last-child {
+        margin-right: 0; } }
 
 nav {
   float: left;
@@ -180,8 +180,19 @@ nav {
     nav ul li {
       display: inline-block;
       margin-left: 1em; }
+      nav ul li a {
+        color: #2E3192;
+        text-decoration: none; }
+        nav ul li a:hover {
+          text-decoration: underline; }
+        nav ul li a:focus, nav ul li a:active {
+          color: #5DB8BC; }
       nav ul li a.active {
         font-weight: 600; }
+
+#community-guidelines-page .community-guidelines-active {
+  font-weight: 600;
+  letter-spacing: 0.2em; }
 
 footer {
   margin-top: 2.5em;
@@ -192,6 +203,19 @@ footer {
   color: #fff;
   font-size: 0.8em;
   letter-spacing: 0.25em; }
+
+.main {
+  max-width: 64em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2.5em; }
+  .main::after {
+    clear: both;
+    content: "";
+    display: table; }
+  @media screen and (max-width: 960px) {
+    .main {
+      padding: 0 1em; } }
 
 #community-guidelines h2 {
   text-align: center;
@@ -210,6 +234,15 @@ footer {
   width: 31.7615656014%; }
   #community-guidelines .goal:last-child {
     margin-right: 0; }
+  @media screen and (max-width: 960px) {
+    #community-guidelines .goal {
+      float: left;
+      display: block;
+      margin-right: 2.3576515979%;
+      width: 100%;
+      text-align: center; }
+      #community-guidelines .goal:last-child {
+        margin-right: 0; } }
 
 #community-guidelines .guide {
   float: left;
@@ -218,5 +251,89 @@ footer {
   width: 65.8807828007%; }
   #community-guidelines .guide:last-child {
     margin-right: 0; }
+  @media screen and (max-width: 960px) {
+    #community-guidelines .guide {
+      float: left;
+      display: block;
+      margin-right: 2.3576515979%;
+      width: 82.9403914003%;
+      margin-left: 8.5298042998%;
+      margin-top: 1em; }
+      #community-guidelines .guide:last-child {
+        margin-right: 0; } }
+
+#home h2 {
+  text-align: center;
+  margin: 1em 0; }
+
+#home .intro {
+  text-align: center; }
+  #home .intro img {
+    margin-bottom: 2.5em; }
+    #home .intro img:hover {
+      -webkit-animation: scale 1s ease-in, slide 2s ease;
+      -moz-animation: scale 1s ease-in, slide 2s ease;
+      animation: scale 1s ease-in, slide 2s ease; }
+  #home .intro h4 {
+    margin-bottom: 1em; }
+
+#home form {
+  text-align: center;
+  padding: 1em 0; }
+  #home form .field {
+    margin-right: 1em;
+    min-width: 350px; }
+  #home form p {
+    margin: 2.5em 0;
+    font-size: 0.8em;
+    letter-spacing: 0.25em; }
+
+a {
+  color: #5DB8BC;
+  text-decoration: none; }
+  a:hover {
+    color: #2dffff;
+    text-decoration: underline; }
+  a:active, a:focus {
+    color: #ea267a;
+    text-decoration: underline; }
+
+input[type="color"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="time"], input[type="url"], input[type="week"], textarea {
+  border: 2px solid #2dffff;
+  padding: 0.5em;
+  font-size: 0.875em;
+  letter-spacing: 0.05em;
+  font-family: "moristonpersonal", Helvetica, sans-serif; }
+
+input[type="color"]:focus, input[type="date"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="email"]:focus, input[type="month"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="text"]:focus, input[type="time"]:focus, input[type="url"]:focus, input[type="week"]:focus, textarea:focus,
+input[type="color"]:hover, input[type="date"]:hover, input[type="datetime"]:hover, input[type="datetime-local"]:hover, input[type="email"]:hover, input[type="month"]:hover, input[type="number"]:hover, input[type="password"]:hover, input[type="search"]:hover, input[type="tel"]:hover, input[type="text"]:hover, input[type="time"]:hover, input[type="url"]:hover, input[type="week"]:hover, textarea:hover {
+  border-color: #5DB8BC; }
+
+input[type="color"]:active, input[type="date"]:active, input[type="datetime"]:active, input[type="datetime-local"]:active, input[type="email"]:active, input[type="month"]:active, input[type="number"]:active, input[type="password"]:active, input[type="search"]:active, input[type="tel"]:active, input[type="text"]:active, input[type="time"]:active, input[type="url"]:active, input[type="week"]:active, textarea:active {
+  border: 2px solid #2dffff; }
+
+input[type="submit"] {
+  border: 2px solid #2dffff;
+  background-color: #fff;
+  padding: 0.5em 2.5em;
+  font-size: 0.875em;
+  letter-spacing: 0.05em;
+  font-family: "moristonpersonal", Helvetica, sans-serif; }
+
+input[type="submit"]:focus, input[type="submit"]:hover {
+  border-color: #5DB8BC;
+  cursor: pointer; }
+
+::-webkit-input-placeholder {
+  color: #2E3192; }
+
+::-moz-placeholder {
+  color: #2E3192; }
+
+:-moz-placeholder {
+  color: #2E3192; }
+
+:-ms-input-placeholder {
+  color: #2E3192; }
 
 /*# sourceMappingURL=style.css.map */

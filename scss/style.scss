@@ -2,62 +2,11 @@
   "reset",
   "bourbon/bourbon",
   "neat/neat",
-  "fonts"
+  "fonts",
+  "variables",
+  "typography",
+  "layout"
 ;
-
-//
-// Variables
-//
-
-// Colors
-$navy: #2E3192;
-$aqua: #2dffff;
-$aqua-shade: #5DB8BC;
-$rose: #ea267a;
-$rose-shade: #C51663;
-
-// font weights
-$black-font-weight: 900;
-$bold-font-weight: 700;
-$semibold-font-weight: 600;
-$medium-font-weight: 500;
-$regular-font-weight: 400;
-$light-font-weight: 300;
-
-// Spacing
-$base-spacing: 1em;
-$large-spacing: 2.5*$base-spacing;
-$small-spacing: 0.5*$base-spacing;
-
-//
-// Typography
-//
-html {
-  font-family: 'moristonpersonal', Helvetica, sans-serif;
-  font-weight: $light-font-weight;
-  color: $navy;
-}
-
-h2 { font-size: 3.625em; }
-h3 {
-  font-size: 1.25em;
-  line-height: 2.25em;
-  letter-spacing: 0.15em;
-}
-h4 {
-  font-size: 0.875em;
-  line-height: 2.25em;
-  letter-spacing: 0.05em;
-  font-weight: $semibold-font-weight;
-}
-p {
-  font-size: 0.875em;
-  line-height: 2.25em;
-  letter-spacing: 0.05em;
-}
-
-// font sizes
-$small-font-size: 0.8em;
 
 //
 // Layout
@@ -65,47 +14,10 @@ $small-font-size: 0.8em;
 .main {
   @include outer-container;
   margin-bottom: $large-spacing;
-}
 
-header {
-  @include outer-container;
-}
-
-.logo-wrapper {
-  @include span-columns(4);
-  @include shift(4);
-  text-align: center;
-}
-
-nav {
-  @include span-columns(4);
-  padding-top: $large-spacing;
-
-  ul {
-    text-align: right;
-    font-size: $small-font-size;
-    letter-spacing: 0.25em;
-
-    li {
-      display: inline-block;
-      margin-left: $base-spacing;
-
-      a.active {
-        font-weight: $semibold-font-weight;
-      }
-    }
+  @include media($medium-screen-size) {
+    padding: 0 $base-spacing;
   }
-}
-
-footer {
-  margin-top: $large-spacing;
-  padding: $large-spacing;
-  text-align: center;
-  text-transform: uppercase;
-  background-color: $navy;
-  color: #fff;
-  font-size: $small-font-size;
-  letter-spacing: 0.25em;
 }
 
 #community-guidelines {
@@ -122,9 +34,114 @@ footer {
 
   .goal {
     @include span-columns(4);
+
+    @include media($medium-screen-size) {
+      @include span-columns(12);
+      text-align: center;
+    }
   }
 
   .guide {
     @include span-columns(8);
+
+    @include media($medium-screen-size) {
+      @include span-columns(10);
+      @include shift(1);
+      margin-top: $base-spacing;
+    }
   }
+}
+
+#home {
+  h2 {
+    text-align: center;
+    margin: $base-spacing 0;
+  }
+
+  .intro {
+    text-align: center;
+
+    img {
+      margin-bottom: $large-spacing;
+      &:hover {
+        @include animation(scale 1.0s ease-in, slide 2.0s ease);
+      }
+    }
+
+    h4 {
+      margin-bottom: $base-spacing;
+    }
+  }
+
+  form {
+    text-align: center;
+    padding: $base-spacing 0;
+
+    .field {
+      margin-right: $base-spacing;
+      min-width: 350px;
+    }
+
+    p {
+      margin: $large-spacing 0;
+      font-size: $small-font-size;
+      letter-spacing: 0.25em;
+    }
+  }
+}
+
+//
+// Components
+//
+
+// Links
+a {
+  color: $aqua-shade;
+  text-decoration: none;
+
+  &:hover {
+    color: $aqua;
+    text-decoration: underline;
+  }
+
+  &:active, &:focus {
+    color: $rose;
+    text-decoration: underline;
+  }
+}
+
+// Inputs
+#{$all-text-inputs} {
+  border: 2px solid $aqua;
+  padding: $small-spacing;
+  font-size: 0.875em;
+  letter-spacing: 0.05em;
+  font-family: $base-font-family;
+}
+
+#{$all-text-inputs-focus},
+#{$all-text-inputs-hover} {
+  border-color: $aqua-shade;
+}
+
+#{$all-text-inputs-active} {
+  border: 2px solid $aqua;
+}
+
+input[type="submit"] {
+  border: 2px solid $aqua;
+  background-color: #fff;
+  padding: $small-spacing $large-spacing;
+  font-size: 0.875em;
+  letter-spacing: 0.05em;
+  font-family: $base-font-family;
+}
+
+input[type="submit"]:focus, input[type="submit"]:hover {
+  border-color: $aqua-shade;
+  cursor: pointer;
+}
+
+@include placeholder {
+  color: $navy;
 }

@@ -1,0 +1,29 @@
+//
+// Typography
+//
+html {
+  font-family: $base-font-family;
+  font-weight: $light-font-weight;
+  color: $navy;
+}
+
+h2 { font-size: 3.625em; }
+h3 {
+  font-size: 1.25em;
+  line-height: 2.25em;
+  letter-spacing: 0.15em;
+}
+h4 {
+  font-size: 0.875em;
+  line-height: 2.25em;
+  letter-spacing: 0.05em;
+  font-weight: $semibold-font-weight;
+}
+p {
+  font-size: 0.875em;
+  line-height: 2.25em;
+  letter-spacing: 0.05em;
+}
+
+// font sizes
+$small-font-size: 0.8em;
