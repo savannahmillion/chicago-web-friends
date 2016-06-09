@@ -44,9 +44,9 @@ app.get('/', function(req, res){
 });
 
 // more pages
-app.get('/about', function(req, res){
-  res.render('about', {
-    title: 'About'
+app.get('/community-guidelines', function(req, res){
+  res.render('community-guidelines', {
+    title: 'Community Guidelines'
   });
 });
 

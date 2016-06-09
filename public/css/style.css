@@ -1,157 +1,222 @@
-/* Reset */
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
 
-body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,dfn,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
 
+body {
+  line-height: 1; }
 
-html,body{
-margin:0;
-padding:0;
-font-family: 'Open Sans', sans-serif;
-background: #fff url(../images/bg.jpg) center top no-repeat;
-background-size: cover;
-height: 100%;
-width: 100%;
-}
+ol, ul {
+  list-style: none; }
 
+blockquote, q {
+  quotes: none; }
 
-#wrapper{
-max-width: 100%;
-width: 940px;
-margin: 0 auto;
-}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
 
-.main{
-max-width: 100%;
-width: 940px;
-float: left;
-}
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
 
-.header, .content, .bottom, .sep2{
-width: 100%;
-float: left;
-}
+html {
+  box-sizing: border-box; }
 
+*, *::after, *::before {
+  box-sizing: inherit; }
 
+body:before {
+  background-image: -webkit-linear-gradient(left, transparent 0, #eee 0, #eee 6.1721527019%, transparent 6.1721527019%, transparent 8.5298042998%, #eee 8.5298042998%, #eee 14.7019570017%, transparent 14.7019570017%, transparent 17.0596085997%, #eee 17.0596085997%, #eee 23.2317613015%, transparent 23.2317613015%, transparent 25.5894128995%, #eee 25.5894128995%, #eee 31.7615656014%, transparent 31.7615656014%, transparent 34.1192171993%, #eee 34.1192171993%, #eee 40.2913699012%, transparent 40.2913699012%, transparent 42.6490214991%, #eee 42.6490214991%, #eee 48.821174201%, transparent 48.821174201%, transparent 51.178825799%, #eee 51.178825799%, #eee 57.3509785009%, transparent 57.3509785009%, transparent 59.7086300988%, #eee 59.7086300988%, #eee 65.8807828007%, transparent 65.8807828007%, transparent 68.2384343986%, #eee 68.2384343986%, #eee 74.4105871005%, transparent 74.4105871005%, transparent 76.7682386985%, #eee 76.7682386985%, #eee 82.9403914003%, transparent 82.9403914003%, transparent 85.2980429983%, #eee 85.2980429983%, #eee 91.4701957002%, transparent 91.4701957002%, transparent 93.8278472981%, #eee 93.8278472981%, #eee 100%, transparent 100%);
+  background-image: -moz-linear-gradient(left, transparent 0, #eee 0, #eee 6.1721527019%, transparent 6.1721527019%, transparent 8.5298042998%, #eee 8.5298042998%, #eee 14.7019570017%, transparent 14.7019570017%, transparent 17.0596085997%, #eee 17.0596085997%, #eee 23.2317613015%, transparent 23.2317613015%, transparent 25.5894128995%, #eee 25.5894128995%, #eee 31.7615656014%, transparent 31.7615656014%, transparent 34.1192171993%, #eee 34.1192171993%, #eee 40.2913699012%, transparent 40.2913699012%, transparent 42.6490214991%, #eee 42.6490214991%, #eee 48.821174201%, transparent 48.821174201%, transparent 51.178825799%, #eee 51.178825799%, #eee 57.3509785009%, transparent 57.3509785009%, transparent 59.7086300988%, #eee 59.7086300988%, #eee 65.8807828007%, transparent 65.8807828007%, transparent 68.2384343986%, #eee 68.2384343986%, #eee 74.4105871005%, transparent 74.4105871005%, transparent 76.7682386985%, #eee 76.7682386985%, #eee 82.9403914003%, transparent 82.9403914003%, transparent 85.2980429983%, #eee 85.2980429983%, #eee 91.4701957002%, transparent 91.4701957002%, transparent 93.8278472981%, #eee 93.8278472981%, #eee 100%, transparent 100%);
+  background-image: -ms-linear-gradient(left, transparent 0, #eee 0, #eee 6.1721527019%, transparent 6.1721527019%, transparent 8.5298042998%, #eee 8.5298042998%, #eee 14.7019570017%, transparent 14.7019570017%, transparent 17.0596085997%, #eee 17.0596085997%, #eee 23.2317613015%, transparent 23.2317613015%, transparent 25.5894128995%, #eee 25.5894128995%, #eee 31.7615656014%, transparent 31.7615656014%, transparent 34.1192171993%, #eee 34.1192171993%, #eee 40.2913699012%, transparent 40.2913699012%, transparent 42.6490214991%, #eee 42.6490214991%, #eee 48.821174201%, transparent 48.821174201%, transparent 51.178825799%, #eee 51.178825799%, #eee 57.3509785009%, transparent 57.3509785009%, transparent 59.7086300988%, #eee 59.7086300988%, #eee 65.8807828007%, transparent 65.8807828007%, transparent 68.2384343986%, #eee 68.2384343986%, #eee 74.4105871005%, transparent 74.4105871005%, transparent 76.7682386985%, #eee 76.7682386985%, #eee 82.9403914003%, transparent 82.9403914003%, transparent 85.2980429983%, #eee 85.2980429983%, #eee 91.4701957002%, transparent 91.4701957002%, transparent 93.8278472981%, #eee 93.8278472981%, #eee 100%, transparent 100%);
+  background-image: -o-linear-gradient(left, transparent 0, #eee 0, #eee 6.1721527019%, transparent 6.1721527019%, transparent 8.5298042998%, #eee 8.5298042998%, #eee 14.7019570017%, transparent 14.7019570017%, transparent 17.0596085997%, #eee 17.0596085997%, #eee 23.2317613015%, transparent 23.2317613015%, transparent 25.5894128995%, #eee 25.5894128995%, #eee 31.7615656014%, transparent 31.7615656014%, transparent 34.1192171993%, #eee 34.1192171993%, #eee 40.2913699012%, transparent 40.2913699012%, transparent 42.6490214991%, #eee 42.6490214991%, #eee 48.821174201%, transparent 48.821174201%, transparent 51.178825799%, #eee 51.178825799%, #eee 57.3509785009%, transparent 57.3509785009%, transparent 59.7086300988%, #eee 59.7086300988%, #eee 65.8807828007%, transparent 65.8807828007%, transparent 68.2384343986%, #eee 68.2384343986%, #eee 74.4105871005%, transparent 74.4105871005%, transparent 76.7682386985%, #eee 76.7682386985%, #eee 82.9403914003%, transparent 82.9403914003%, transparent 85.2980429983%, #eee 85.2980429983%, #eee 91.4701957002%, transparent 91.4701957002%, transparent 93.8278472981%, #eee 93.8278472981%, #eee 100%, transparent 100%);
+  background-image: linear-gradient(to left, transparent 0, #eee 0, #eee 6.1721527019%, transparent 6.1721527019%, transparent 8.5298042998%, #eee 8.5298042998%, #eee 14.7019570017%, transparent 14.7019570017%, transparent 17.0596085997%, #eee 17.0596085997%, #eee 23.2317613015%, transparent 23.2317613015%, transparent 25.5894128995%, #eee 25.5894128995%, #eee 31.7615656014%, transparent 31.7615656014%, transparent 34.1192171993%, #eee 34.1192171993%, #eee 40.2913699012%, transparent 40.2913699012%, transparent 42.6490214991%, #eee 42.6490214991%, #eee 48.821174201%, transparent 48.821174201%, transparent 51.178825799%, #eee 51.178825799%, #eee 57.3509785009%, transparent 57.3509785009%, transparent 59.7086300988%, #eee 59.7086300988%, #eee 65.8807828007%, transparent 65.8807828007%, transparent 68.2384343986%, #eee 68.2384343986%, #eee 74.4105871005%, transparent 74.4105871005%, transparent 76.7682386985%, #eee 76.7682386985%, #eee 82.9403914003%, transparent 82.9403914003%, transparent 85.2980429983%, #eee 85.2980429983%, #eee 91.4701957002%, transparent 91.4701957002%, transparent 93.8278472981%, #eee 93.8278472981%, #eee 100%, transparent 100%);
+  content: "";
+  display: inline-block;
+  height: 100%;
+  left: 0;
+  margin: 0 auto;
+  max-width: 64em;
+  opacity: 0.4;
+  pointer-events: none;
+  position: fixed;
+  right: 0;
+  width: 100%;
+  z-index: -1; }
 
-.header{
-	margin-top: 160px;
-	margin-bottom: 40px;
-}
+@font-face {
+  font-family: 'moristonpersonal';
+  src: url("../fonts/moristonpersonal-light-webfont.eot");
+  src: url("../fonts/moristonpersonal-light-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/moristonpersonal-light-webfont.woff2") format("woff2"), url("../fonts/moristonpersonal-light-webfont.woff") format("woff"), url("../fonts/moristonpersonal-light-webfont.ttf") format("truetype"), url("../fonts/moristonpersonal-light-webfont.svg#moriston_personallight") format("svg");
+  font-weight: 300;
+  font-style: normal; }
 
+@font-face {
+  font-family: 'moristonpersonal';
+  src: url("../fonts/moristonpersonal-regular-webfont.eot");
+  src: url("../fonts/moristonpersonal-regular-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/moristonpersonal-regular-webfont.woff2") format("woff2"), url("../fonts/moristonpersonal-regular-webfont.woff") format("woff"), url("../fonts/moristonpersonal-regular-webfont.ttf") format("truetype"), url("../fonts/moristonpersonal-regular-webfont.svg#moriston_personal_regularRg") format("svg");
+  font-weight: 400;
+  font-style: normal; }
 
-h1{
-font-family: 'Open Sans', sans-serif;
-color: #fff;
-text-align: center;
-font-size: 50px;
-font-weight: 300;
-margin: 0 0 10px 0;
-}
+@font-face {
+  font-family: 'moristonpersonal';
+  src: url("../fonts/moristonpersonal-semibold-webfont.eot");
+  src: url("../fonts/moristonpersonal-semibold-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/moristonpersonal-semibold-webfont.woff2") format("woff2"), url("../fonts/moristonpersonal-semibold-webfont.woff") format("woff"), url("../fonts/moristonpersonal-semibold-webfont.ttf") format("truetype"), url("../fonts/moristonpersonal-semibold-webfont.svg#moriston_personalsemibold") format("svg");
+  font-weight: 600;
+  font-style: normal; }
 
+@font-face {
+  font-family: 'moristonpersonal';
+  src: url("../fonts/moristonpersonal-medium-webfont.eot");
+  src: url("../fonts/moristonpersonal-medium-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/moristonpersonal-medium-webfont.woff2") format("woff2"), url("../fonts/moristonpersonal-medium-webfont.woff") format("woff"), url("../fonts/moristonpersonal-medium-webfont.ttf") format("truetype"), url("../fonts/moristonpersonal-medium-webfont.svg#moriston_personalmedium") format("svg");
+  font-weight: 500;
+  font-style: normal; }
 
-h1 strong{
-font-size: 38px;
-font-weight: 700;
-}
-
-h2{
-	text-align: center;
-	font-weight: 300;
-	font-size: 20px;
-		color: #ffffff;
-
-}
-
-h2 strong{
-	font-weight: 700;
-	font-style: italic;
-}
-
-
-.information{
-width: 480px;
-padding-top: 35px;
-margin: 0 auto;
-}
-
-h3{
-font-size: 28px;
-font-weight: 600;
-color: #ffffff;
-}
-
-.information p{
-font-size: 16px;
-color: #ffffff;
-display: block;
-}
-
-.form{
-	float: left;
-	width: 478px;
-	margin-top: 20px;
-}
-
-.field{
-background: url(../images/field.png) repeat;
-width: 448px;
--webkit-border-radius: 30px;-moz-border-radius: 30px;border-radius: 30px;
-border: none;
-font-style: italic;
-font-family: 'Lato', sans-serif;
-font-size: 16px;
-color: #ffffff;
-float: left;
-padding: 15px;
-margin-bottom: 15px;
-}
-
-@media only screen and (max-device-width: 420px)  {
-	.information{
-		width: 100%;
-	}
-	.form{
-		width: 100%;
-	}
-
-	.field {
-		width: 90%;
-		padding-left: 5%;
-		padding-right: 5%;
-	}
-}
-
-.submit{
-padding: 3px 10px;
--webkit-border-radius: 30px;-moz-border-radius: 30px;border-radius: 30px;
-margin-left: -78px;
-margin-top: 12px;
-background: #ffffff;
-border: none;
-float: left;
-font-family: 'Lato', sans-serif;
-font-size: 14px;
-font-weight: bold;
-cursor: pointer;
-}
-
-
-.submit:hover{
-background: #eeeeee;
-}
-
-.error {
-  color: #FE7070;
+@font-face {
+  font-family: 'moristonpersonal';
+  src: url("../fonts/moristonpersonal-bold-webfont.eot");
+  src: url("../fonts/moristonpersonal-bold-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/moristonpersonal-bold-webfont.woff2") format("woff2"), url("../fonts/moristonpersonal-bold-webfont.woff") format("woff"), url("../fonts/moristonpersonal-bold-webfont.ttf") format("truetype"), url("../fonts/moristonpersonal-bold-webfont.svg#moriston_personalbold") format("svg");
   font-weight: 700;
-  font-size: 25px;
-}
+  font-style: normal; }
 
-a {
-  color: #92BCF2;
-  font-weight: 700;
-}
+@font-face {
+  font-family: 'moristonpersonal';
+  src: url("../fonts/moristonpersonal-black-webfont.eot");
+  src: url("../fonts/moristonpersonal-black-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/moristonpersonal-black-webfont.woff2") format("woff2"), url("../fonts/moristonpersonal-black-webfont.woff") format("woff"), url("../fonts/moristonpersonal-black-webfont.ttf") format("truetype"), url("../fonts/moristonpersonal-black-webfont.svg#moriston_personalblack") format("svg");
+  font-weight: 900;
+  font-style: normal; }
 
-a:visited,
-a:hover {
-  color: #7EB6FF;
-}
+html {
+  font-family: 'moristonpersonal', Helvetica, sans-serif;
+  font-weight: 300;
+  color: #2E3192; }
+
+h2 {
+  font-size: 3.625em; }
+
+h3 {
+  font-size: 1.25em;
+  line-height: 2.25em;
+  letter-spacing: 0.15em; }
+
+h4 {
+  font-size: 0.875em;
+  line-height: 2.25em;
+  letter-spacing: 0.05em;
+  font-weight: 600; }
+
+p {
+  font-size: 0.875em;
+  line-height: 2.25em;
+  letter-spacing: 0.05em; }
+
+.main {
+  max-width: 64em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2.5em; }
+  .main::after {
+    clear: both;
+    content: "";
+    display: table; }
+
+header {
+  max-width: 64em;
+  margin-left: auto;
+  margin-right: auto; }
+  header::after {
+    clear: both;
+    content: "";
+    display: table; }
+
+.logo-wrapper {
+  float: left;
+  display: block;
+  margin-right: 2.3576515979%;
+  width: 31.7615656014%;
+  margin-left: 34.1192171993%;
+  text-align: center; }
+  .logo-wrapper:last-child {
+    margin-right: 0; }
+
+nav {
+  float: left;
+  display: block;
+  margin-right: 2.3576515979%;
+  width: 31.7615656014%;
+  padding-top: 2.5em; }
+  nav:last-child {
+    margin-right: 0; }
+  nav ul {
+    text-align: right;
+    font-size: 0.8em;
+    letter-spacing: 0.25em; }
+    nav ul li {
+      display: inline-block;
+      margin-left: 1em; }
+      nav ul li a.active {
+        font-weight: 600; }
+
+footer {
+  margin-top: 2.5em;
+  padding: 2.5em;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: #2E3192;
+  color: #fff;
+  font-size: 0.8em;
+  letter-spacing: 0.25em; }
+
+#community-guidelines h2 {
+  text-align: center;
+  margin: 1em 0; }
+
+#community-guidelines h4 {
+  margin-bottom: 0.5em; }
+
+#community-guidelines p {
+  margin-bottom: 1em; }
+
+#community-guidelines .goal {
+  float: left;
+  display: block;
+  margin-right: 2.3576515979%;
+  width: 31.7615656014%; }
+  #community-guidelines .goal:last-child {
+    margin-right: 0; }
+
+#community-guidelines .guide {
+  float: left;
+  display: block;
+  margin-right: 2.3576515979%;
+  width: 65.8807828007%; }
+  #community-guidelines .guide:last-child {
+    margin-right: 0; }
+
+/*# sourceMappingURL=style.css.map */
