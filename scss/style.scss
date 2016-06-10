@@ -11,9 +11,23 @@
 //
 // Layout
 //
+html, body {
+  height: 100%;
+}
+
+.wrapper {
+  // for sticky footer
+  min-height: 100%;
+  margin-bottom: -140px;
+  &:after {
+    content: "";
+    display: block;
+  }
+}
+
 .main {
   @include outer-container;
-  margin-bottom: $large-spacing;
+  // margin-bottom: $large-spacing;
 
   @include media($medium-screen-size) {
     padding: 0 $base-spacing;
@@ -63,9 +77,8 @@
 
     img {
       margin-bottom: $large-spacing;
-      &:hover {
-        @include animation(scale 1.0s ease-in, slide 2.0s ease);
-      }
+      width: 75px;
+      height: auto;
     }
 
     h4 {
@@ -126,6 +139,10 @@ a {
 
 #{$all-text-inputs-active} {
   border: 2px solid $aqua;
+}
+
+#{$all-text-inputs}:-webkit-autofill {
+  background-color: #fff;
 }
 
 input[type="submit"] {

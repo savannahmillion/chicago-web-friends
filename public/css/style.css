@@ -145,22 +145,34 @@ header {
     content: "";
     display: table; }
 
+.social {
+  float: left;
+  display: block;
+  margin-right: 2.3576515979%;
+  width: 31.7615656014%;
+  padding-top: 2.5em;
+  font-size: 0.8em;
+  letter-spacing: 0.25em; }
+  .social:last-child {
+    margin-right: 0; }
+
 .logo-wrapper {
   float: left;
   display: block;
   margin-right: 2.3576515979%;
   width: 31.7615656014%;
-  margin-left: 34.1192171993%;
   text-align: center; }
   .logo-wrapper:last-child {
     margin-right: 0; }
+  .logo-wrapper img {
+    width: 220px;
+    height: auto; }
   @media screen and (max-width: 960px) {
     .logo-wrapper {
       float: left;
       display: block;
       margin-right: 2.3576515979%;
       width: 100%;
-      margin-left: 0%;
       text-align: center; }
       .logo-wrapper:last-child {
         margin-right: 0; } }
@@ -194,6 +206,9 @@ nav {
   font-weight: 600;
   letter-spacing: 0.2em; }
 
+.wrapper:after, footer {
+  height: 140px; }
+
 footer {
   margin-top: 2.5em;
   padding: 2.5em;
@@ -204,11 +219,20 @@ footer {
   font-size: 0.8em;
   letter-spacing: 0.25em; }
 
+html, body {
+  height: 100%; }
+
+.wrapper {
+  min-height: 100%;
+  margin-bottom: -140px; }
+  .wrapper:after {
+    content: "";
+    display: block; }
+
 .main {
   max-width: 64em;
   margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 2.5em; }
+  margin-right: auto; }
   .main::after {
     clear: both;
     content: "";
@@ -269,11 +293,9 @@ footer {
 #home .intro {
   text-align: center; }
   #home .intro img {
-    margin-bottom: 2.5em; }
-    #home .intro img:hover {
-      -webkit-animation: scale 1s ease-in, slide 2s ease;
-      -moz-animation: scale 1s ease-in, slide 2s ease;
-      animation: scale 1s ease-in, slide 2s ease; }
+    margin-bottom: 2.5em;
+    width: 75px;
+    height: auto; }
   #home .intro h4 {
     margin-bottom: 1em; }
 
@@ -311,6 +333,9 @@ input[type="color"]:hover, input[type="date"]:hover, input[type="datetime"]:hove
 
 input[type="color"]:active, input[type="date"]:active, input[type="datetime"]:active, input[type="datetime-local"]:active, input[type="email"]:active, input[type="month"]:active, input[type="number"]:active, input[type="password"]:active, input[type="search"]:active, input[type="tel"]:active, input[type="text"]:active, input[type="time"]:active, input[type="url"]:active, input[type="week"]:active, textarea:active {
   border: 2px solid #2dffff; }
+
+input[type="color"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="time"], input[type="url"], input[type="week"], textarea:-webkit-autofill {
+  background-color: #fff; }
 
 input[type="submit"] {
   border: 2px solid #2dffff;

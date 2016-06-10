@@ -2,18 +2,19 @@ doctype html
 html
   include includes/head.jade
   body
-    include includes/header.jade
-    .main#home
-      h2 A friendly Chicago Slack forum for exchanging web knowledge
-      .intro
-        image(src="images/img-logo_sm.png")
-        h3 Please join us! Enter your email and we'll send you an invite.
-      form(method="POST", action="/invite")#join-form.form
-        input(type="email", name="email", placeholder="your email")#slack-email.field
-        //- if tokenRequired
-        //-   input(type="text", name="token", placeholder="#{__('ENTER_TOKEN')}")#slack-token.field
-        input(type="submit", class="btn", value="send invite").submit
-        p thanks to #[a(target="_blank", href="#") outsideris] for the framework for this page!
+    .wrapper
+      include includes/header.jade
+      .main#home
+        h2 A friendly Chicago Slack forum for exchanging web knowledge
+        .intro
+          image(src="images/cwf-logo.svg")
+          h3 Please join us! Enter your email and we'll send you an invite.
+        form(method="POST", action="/invite")#join-form.form
+          input(type="email", name="email", placeholder="your email")#slack-email.field
+          //- if tokenRequired
+          //-   input(type="text", name="token", placeholder="#{__('ENTER_TOKEN')}")#slack-token.field
+          input(type="submit", class="btn", value="send invite").submit
+          p thanks to #[a(target="_blank", href="#") outsideris] for the framework for this page!
     include includes/footer.jade
     script.
       var tokenRequired = #{tokenRequired};

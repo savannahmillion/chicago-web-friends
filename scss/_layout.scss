@@ -2,14 +2,24 @@ header {
   @include outer-container;
 }
 
+.social {
+  @include span-columns(4);
+  padding-top: $large-spacing;
+  font-size: $small-font-size;
+  letter-spacing: 0.25em;
+}
+
 .logo-wrapper {
   @include span-columns(4);
-  @include shift(4);
   text-align: center;
+
+  img {
+    width: 220px;
+    height: auto;
+  }
 
   @include media($medium-screen-size) {
     @include span-columns(12);
-    @include shift(0);
     text-align: center;
   }
 }
@@ -52,6 +62,9 @@ nav {
   }
 }
 
+.wrapper:after, footer {
+  height: 140px;
+}
 
 footer {
   margin-top: $large-spacing;
